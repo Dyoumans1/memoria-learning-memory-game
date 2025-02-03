@@ -1,0 +1,90 @@
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background-color: lightgray;
+    font-family: system-ui, sans-serif;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    color: darkred;
+    
+}
+
+header {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    color: gold;
+    font-size: 100px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+p {
+    color: darkred;
+    font-size: 30px;
+    margin-left: 30px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.grid-container {
+    display: grid;
+    justify-content: center;
+    flex-wrap: wrap;
+    box-shadow: 2px;
+    grid-gap: 100px;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    margin: 18px;
+}
+
+.grid-container > div {
+    border: 2px solid black;
+}
+
+#startButton, #restartButton {
+    background-color: darkred;
+    color: white;
+    padding: 20px 40px; 
+    border: solid black;
+    border-radius: 10px; 
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px;
+}
+
+#startButton:hover, #restartButton:hover {
+    background-color: rgb(201, 179, 54);
+}
+
+.time {
+    font-size: 30px;
+    padding: 1px 80px;
+    border: solid black;
+    background-color: white;
+}
