@@ -59,7 +59,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     
-    grid-gap: 120px;
+    grid-gap: 80px;
     grid-template-columns: repeat(4, 170px);
     grid-template-rows: repeat(4, 140px);
     margin: 18px;
@@ -73,7 +73,14 @@ h1 {
     justify-content: center;
     align-items: center;
     font-size: 90px;
+    background-color: rgb(65, 14, 65);
+    border-radius: 10px;
+    position: relative;
     
+}
+.grid-container > div.flipped {
+    background-color: white;
+    color: black;
 }
 
 #startButton, #restartButton {
@@ -97,4 +104,10 @@ h1 {
     border: solid black;
     background-color: white;
     
+}
+
+.game-message {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 18px;
 }
