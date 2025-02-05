@@ -43,7 +43,7 @@ const cardPairs = () => {
 
 const placeCards = (pairs) => {
     
- const gameDeck = document.querySelector('.cards');
+ const gameDeck = document.querySelectorAll('.card');
     
     for (let idx = 0; idx < gameDeck.length; idx++) {
         gameDeck[idx].dataset.value = pairs[idx];
@@ -54,16 +54,19 @@ const placeCards = (pairs) => {
 // start the game
 
 document.getElementById('startButton'). addEventListener('click', () => {
+    if (!gameStarted) {
     const pairs = cardPairs();
     placeCards(pairs);
     startTimer();
+    gameStarted = true;
+    }
 })
 
 
 //flipping the cards
 
 const flipCard = (card) => {
-    if (gameStarted === null || card === firstCard || card.classList.contains(`flipped`))
+    if (!gameStarted || card === firstCard || card.classList.contains(`flipped`))
      return;
 
     card.classList.add(`flipped`);
@@ -74,17 +77,43 @@ const flipCard = (card) => {
         firstCard = card;
     } else {
         secondCard = card;
+
+    if (firstCard.dataset.value === secondCard.dataset.value) {
+        matchedCards++;
+        resetTurn();
+         
+    if (matchedCards === 8) {
+        clearInterval(timer);
+        showMessage('You Won! Great job, keep up the good work!');
+    }    
+
+    } else { 
+        setTimeout(() => {
+            firstCard.classList.remove(`flipped`);
+            secondCard.classList.remove(`flipped`);
+            firstCard.textContent = '';
+            secondCard.textContent = '';
+            resetTurn();
+        }, 1000);
+    } 
     }
+} ;
+
+//flipp the cards back over
+
+const resetTurn = () => {
+    firstCard = null;
+    secondCard = null;
+}
+ // click cards
+ document.querySelector('.grid-container').addEventListener(`click`, (event) => {
+    if (event.target.classList.contains(`card`)) {
+        flipCard(event.target);
+    }
+ });
 
 
-
-} 
-
-
-
-
-
-
+//show message
 
 
 
@@ -96,11 +125,11 @@ const flipCard = (card) => {
 const startTimer = () => {
     
 
-    document.querySelector(`.time`).innerText = timeRemaining;
+    document.querySelector('.time').innerText = timeRemaining;
     timer = setInterval(() => {
         if (timeRemaining > 0) {
             timeRemaining --;
-            document.querySelector(`.time`).innerText =timeRemaining;
+            document.querySelector('.time').innerText =timeRemaining;
         } else {
             clearInterval(timer);
         }
@@ -110,3 +139,15 @@ const startTimer = () => {
 document.getElementById('startButton').addEventListener(`click`, startTimer);
 
 //restart
+document.getElementById('restartButton').addEventListener('click', () => {
+    matchedCards = 0;
+    timeRemaining = 90;
+    gameStarted = false;
+    firstCard = null;
+    secondCard = null;
+    document.querySelector('.time').innerText = timeRemaining;
+    const pairs = cardPairs();
+    placeCards(pairs);
+});
+
+console.log(cardPairs())
