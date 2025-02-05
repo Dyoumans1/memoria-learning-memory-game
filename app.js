@@ -58,7 +58,7 @@ let gameStarted = false;
 let firstCard = null;
 let secondCard = null;
 let timer;
-let timeRemaining = 90;
+let timeRemaining = 120;
 
 
 
@@ -108,13 +108,13 @@ document.getElementById('startButton'). addEventListener('click', () => {
     startTimer();
     gameStarted = true;
     }
-})
+});
 
 
 //flipping the cards
 
 const flipCard = (card) => {
-    if (!gameStarted || card === firstCard || card.classList.contains(`flipped`))
+    if (!gameStarted || card === firstCard || card.classList.contains(`flipped`) || secondCard !== null)
      return;
 
     card.classList.add(`flipped`);
@@ -217,18 +217,25 @@ const startTimer = () => {
     }, 1000);
 }; //if clicked more than once timer speeds up 
 
-document.getElementById('startButton').addEventListener(`click`, startTimer);
+// document.getElementById('startButton').addEventListener(`click`, startTimer);
 
 //restart
 document.getElementById('restartButton').addEventListener('click', () => {
     matchedCards = 0;
-    timeRemaining = 90;
+    timeRemaining = 120;
     gameStarted = false;
     firstCard = null;
     secondCard = null;
     document.querySelector('.time').innerText = timeRemaining;
     const pairs = cardPairs();
     placeCards(pairs);
+    const gameDeck = document.querySelectorAll('.card');
+    gameDeck.forEach(card => {
+        card.classList.remove('flipped');
+        card.textContent = '';
+    clearInterval(timer);
+    timeRemaining = 120;
+    document.querySelector('.time').innerText = timeRemaining;
+    });
 });
 
-console.log(cardPairs())
