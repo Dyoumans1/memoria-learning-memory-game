@@ -4,6 +4,54 @@ const cardCharacters = {
 
     romanji: ["a", "i", "o", "u", "e", "ka", "ki", "ku", "ke", "ko", "sa", "shi", "su", "se", "so", "ta", "chi", "tsu", "te", "to", "na", "ni", "nu", "ne", "no", "ha", "hi", "fu", "he", "ho", "ma", "mi", "mu", "me", "mo", "ya" , "yu", "yo", "ra", "ri", "ru", "re", "ro", "wa", "wo", "n"],
 };
+const winningPairs = [
+    ["あ", "a"],
+    ["い", "i"],
+    ["お", "o"],
+    ["う", "u"],
+    ["え", "e"],
+    ["か", "ka"],
+    ["き", "ki"],
+    ["く", "ku"],
+    ["け", "ke"],
+    ["こ", "ko"],
+    ["さ", "sa"],
+    ["し", "shi"],
+    ["す", "su"],
+    ["せ", "se"],
+    ["そ", "so"],
+    ["た", "ta"],
+    ["ち", "chi"],
+    ["つ", "tsu"],
+    ["て", "te"],
+    ["と", "to"],
+    ["な", "na"],
+    ["に", "ni"],
+    ["ぬ", "nu"],
+    ["ね", "ne"],
+    ["の", "no"],
+    ["は", "ha"],
+    ["ひ", "hi"],
+    ["ふ", "fu"],
+    ["へ", "he"],
+    ["ほ", "ho"],
+    ["ま", "ma"],
+    ["み", "mi"],
+    ["む", "mu"],
+    ["め", "me"],
+    ["も", "mo"],
+    ["や", "ya"],
+    ["ゆ", "yu"],
+    ["よ", "yo"],
+    ["ら", "ra"],
+    ["り", "ri"],
+    ["る", "ru"],
+    ["れ", "re"],
+    ["ろ", "ro"],
+    ["わ", "wa"],
+    ["を", "wo"],
+    ["ん", "n"]
+];
 
 let matchedCards = 0;
 let gameStarted = false;
@@ -78,10 +126,39 @@ const flipCard = (card) => {
     } else {
         secondCard = card;
 
-    if (firstCard.dataset.value === secondCard.dataset.value) {
+    const firstCardValue = firstCard.dataset.value;
+    const secondCardValue = secondCard.dataset.value;
+
+    let isMatch = false;
+    
+    for (let idx = 0; idx < winningPairs.length; idx++) {
+        if ( (winningPairs[idx][0] === firstCardValue && winningPairs[idx][1] === secondCardValue) || (winningPairs[idx][0] === secondCardValue && winningPairs[idx][1] === firstCardValue)) {
+            isMatch = true;
+            break;
+        }
+    }
+
+    // let hiraganaCard;
+    // let romanjiCard;
+
+    // if(cardCharacters.hiragana.includes(firstCard.dataset.value)) {
+    //     hiraganaCard = firstCard;
+    //     romanjiCard = secondCard;
+    // } else {
+    //     hiraganaCard = secondCard;
+    //     romanjiCard = firstCard;
+    // }
+
+    // const hiraganaIdx = cardCharacters.hiragana.indexOf(firstCard.dataset.value);
+    // const romanjiIdx = cardCharacters.romanji.indexOf(secondCard.dataset.value);
+    
+    // const isMatch = hiraganaIdx === romanjiIdx
+
+    if (isMatch) {
         matchedCards++;
         resetTurn();
-         
+
+        
     if (matchedCards === 8) {
         clearInterval(timer);
         showMessage('You Won! Great job, keep up the good work!');
@@ -98,6 +175,10 @@ const flipCard = (card) => {
     } 
     }
 } ;
+
+// if (firstCard.dataset.value === secondCard.dataset.value) {
+    //     matchedCards++;
+    //     resetTurn();
 
 //flipp the cards back over
 
@@ -123,7 +204,7 @@ const resetTurn = () => {
 //timer
 
 const startTimer = () => {
-    
+    clearInterval(timer);
 
     document.querySelector('.time').innerText = timeRemaining;
     timer = setInterval(() => {
