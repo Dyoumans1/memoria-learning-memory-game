@@ -156,6 +156,8 @@ const flipCard = (card) => {
 
     if (isMatch) {
         matchedCards++;
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
         resetTurn();
 
         
