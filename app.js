@@ -197,7 +197,12 @@ const resetTurn = () => {
 
 
 //show message
-
+const showMessage = (message) => {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('game-message');
+    messageDiv.textContent = message;
+    document.querySelector('main').appendChild(messageDiv);
+};
 
 
 
@@ -215,6 +220,7 @@ const startTimer = () => {
             document.querySelector('.time').innerText =timeRemaining;
         } else {
             clearInterval(timer);
+            showMessage('Time is up! You lost. Try again!')
         }
     }, 1000);
 }; //if clicked more than once timer speeds up 
@@ -229,6 +235,11 @@ document.getElementById('restartButton').addEventListener('click', () => {
     firstCard = null;
     secondCard = null;
     document.querySelector('.time').innerText = timeRemaining;
+
+    const currentMessage = document.querySelector('.game-message');
+    if (currentMessage) {
+        currentMessage.remove();
+    };
     
     const matchedCardsList = document.querySelectorAll('.card.matched');
     matchedCardsList.forEach(card => {
