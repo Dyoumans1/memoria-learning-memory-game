@@ -229,13 +229,21 @@ document.getElementById('restartButton').addEventListener('click', () => {
     firstCard = null;
     secondCard = null;
     document.querySelector('.time').innerText = timeRemaining;
+    
+    const matchedCardsList = document.querySelectorAll('.card.matched');
+    matchedCardsList.forEach(card => {
+        card.classList.remove('matched');
+    });
+
     const pairs = cardPairs();
     placeCards(pairs);
+    
     const gameDeck = document.querySelectorAll('.card');
     gameDeck.forEach(card => {
         card.classList.remove('flipped');
         card.textContent = '';
-    clearInterval(timer);
+    
+        clearInterval(timer);
     timeRemaining = 120;
     document.querySelector('.time').innerText = timeRemaining;
     });
