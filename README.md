@@ -31,7 +31,7 @@ This memory matching game helps players learn Japanese Hiragana through an engag
 ## 🎬 Getting Started
 Click on the link below to play!
 
-- [Memoria]()
+- [Memoria](https://dyoumans1.github.io/memoria-learning-memory-game/)
 
 # Next Steps
 I built this game with future growth in mind, envisioning how it could evolve into something impactful as my career progresses. My goal is to incorporate multiple languages and various categories, creating a platform that helps knowledge seekers achieve their language learning goals.
