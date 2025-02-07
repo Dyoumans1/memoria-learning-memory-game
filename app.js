@@ -60,11 +60,6 @@ let secondCard = null;
 let timer;
 let timeRemaining = 120;
 
-
-
-
-// card pairs
-
 const cardPairs = () => {
     const pairs = [];
     let indexes = [];
@@ -76,18 +71,9 @@ const cardPairs = () => {
             pairs.push(cardCharacters.hiragana[randIndex], cardCharacters.romanji[randIndex]);
         }
     }
-    // for(let idx = 0; idx < cardCharacters.hiragana.length; idx++) {
-    //     pairs.push(cardCharacters.hiragana[idx], cardCharacters.romanji[idx]);
-    // }
-    return pairs.sort(() => Math.random() - 0.5); //should choose pairs randomly
+    return pairs.sort(() => Math.random() - 0.5); 
 };
 
-
-// console.log(cardPairs());
-
-
-
-//move card to grid
 
 const placeCards = (pairs) => {
     
@@ -99,7 +85,6 @@ const placeCards = (pairs) => {
     }
 };
 
-// start the game
 
 document.getElementById('startButton'). addEventListener('click', () => {
     if (!gameStarted) {
@@ -110,11 +95,8 @@ document.getElementById('startButton'). addEventListener('click', () => {
     }
 });
 
-
-//flipping the cards
-
 const flipCard = (card) => {
-    if (!gameStarted || card === firstCard || card.classList.contains(`flipped`) || secondCard !== null)
+    if (!gameStarted || timeRemaining === 0 || card === firstCard || card.classList.contains(`flipped`) || secondCard !== null)
      return;
 
     card.classList.add(`flipped`);
@@ -137,22 +119,6 @@ const flipCard = (card) => {
             break;
         }
     }
-
-    // let hiraganaCard;
-    // let romanjiCard;
-
-    // if(cardCharacters.hiragana.includes(firstCard.dataset.value)) {
-    //     hiraganaCard = firstCard;
-    //     romanjiCard = secondCard;
-    // } else {
-    //     hiraganaCard = secondCard;
-    //     romanjiCard = firstCard;
-    // }
-
-    // const hiraganaIdx = cardCharacters.hiragana.indexOf(firstCard.dataset.value);
-    // const romanjiIdx = cardCharacters.romanji.indexOf(secondCard.dataset.value);
-    
-    // const isMatch = hiraganaIdx === romanjiIdx
 
     if (isMatch) {
         matchedCards++;
@@ -178,17 +144,11 @@ const flipCard = (card) => {
     }
 } ;
 
-// if (firstCard.dataset.value === secondCard.dataset.value) {
-    //     matchedCards++;
-    //     resetTurn();
-
-//flipp the cards back over
-
 const resetTurn = () => {
     firstCard = null;
     secondCard = null;
 }
- // click cards
+ 
  document.querySelector('.grid-container').addEventListener(`click`, (event) => {
     if (event.target.classList.contains(`card`)) {
         flipCard(event.target);
@@ -196,7 +156,7 @@ const resetTurn = () => {
  });
 
 
-//show message
+
 const showMessage = (message) => {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('game-message');
@@ -204,11 +164,6 @@ const showMessage = (message) => {
     document.querySelector('main').appendChild(messageDiv);
 };
 
-
-
-
-//buttons
-//timer
 
 const startTimer = () => {
     clearInterval(timer);
@@ -223,11 +178,8 @@ const startTimer = () => {
             showMessage('Time is up! You lost. Try again!')
         }
     }, 1000);
-}; //if clicked more than once timer speeds up 
+}; 
 
-// document.getElementById('startButton').addEventListener(`click`, startTimer);
-
-//restart
 document.getElementById('restartButton').addEventListener('click', () => {
     matchedCards = 0;
     timeRemaining = 120;

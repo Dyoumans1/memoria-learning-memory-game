@@ -126,7 +126,6 @@ header, footer, h1 {
 .grid-container > div {
     border: 2px solid black;
     box-shadow: 2px 2px darkred;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,7 +148,6 @@ header, footer, h1 {
     border-radius: 10px; 
     cursor: pointer;
     font-size: 24px;
-    /* font-family: Barrio, san-sarif; */
     margin: 0 10px;
 }
 

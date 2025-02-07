@@ -7,7 +7,7 @@ A fun and educational memory card game to help users learn Japanese Hiragana cha
 This memory matching game helps players learn Japanese Hiragana through an engaging card-matching exercise. Players match Hiragana characters with their corresponding Romanji pronunciation within a time limit.
 
 ##  🔥Features
-- Randomly selects 8 characters out of all 46
+- Randomly selects 8 characters out of all 46 characters
 - 16 cards (8 pairs) of Hiragana and Romanji matches
 - 120-second timer challenge
 - Animated card flips and matches
@@ -45,5 +45,4 @@ I built this game with future growth in mind, envisioning how it could evolve in
 
 # Acknowledgments
 
-- Japanese language learning resources  
-- [Any other acknowledgments]
+- Japanese language learning resources found at [Lexilogos](https://www.lexilogos.com/keyboard/hiragana_conversion.htm)
