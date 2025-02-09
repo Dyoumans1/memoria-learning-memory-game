@@ -9,7 +9,7 @@ This memory matching game helps players learn Japanese Hiragana through an engag
 ##  🔥Features
 - Randomly selects 8 characters out of all 46 characters
 - 16 cards (8 pairs) of Hiragana and Romanji matches
-- 120-second timer challenge
+- 90-second timer challenge
 - Animated card flips and matches
 - Responsive design
 - Victory and defeat conditions
@@ -46,3 +46,5 @@ I built this game with future growth in mind, envisioning how it could evolve in
 # Acknowledgments
 
 - Japanese language learning resources found at [Lexilogos](https://www.lexilogos.com/keyboard/hiragana_conversion.htm)
+
+- The data element and how to use it [HTML Standard](https://html.spec.whatwg.org/multipage/text-level-semantics.html#the-data-element)

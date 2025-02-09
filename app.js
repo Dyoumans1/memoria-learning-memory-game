@@ -58,7 +58,7 @@ let gameStarted = false;
 let firstCard = null;
 let secondCard = null;
 let timer;
-let timeRemaining = 120;
+let timeRemaining = 90;
 
 const cardPairs = () => {
     const pairs = [];
@@ -182,7 +182,7 @@ const startTimer = () => {
 
 document.getElementById('restartButton').addEventListener('click', () => {
     matchedCards = 0;
-    timeRemaining = 120;
+    timeRemaining = 90;
     gameStarted = false;
     firstCard = null;
     secondCard = null;
@@ -207,7 +207,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
         card.textContent = '';
     
         clearInterval(timer);
-    timeRemaining = 120;
+    timeRemaining = 90;
     document.querySelector('.time').innerText = timeRemaining;
     });
 });
