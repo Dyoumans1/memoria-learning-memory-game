@@ -129,7 +129,8 @@ const flipCard = (card) => {
         
     if (matchedCards === 8) {
         clearInterval(timer);
-        showMessage('You Won! Great job, keep up the good work!');
+        document.getElementById('gameMessage').textContent = 'You Won! Great job, keep up the good work!';
+        document.getElementById('gameMessage').style.display = 'block';
     }    
 
     } else { 
@@ -157,14 +158,6 @@ const resetTurn = () => {
 
 
 
-const showMessage = (message) => {
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('game-message');
-    messageDiv.textContent = message;
-    document.querySelector('main').appendChild(messageDiv);
-};
-
-
 const startTimer = () => {
     clearInterval(timer);
 
@@ -175,7 +168,8 @@ const startTimer = () => {
             document.querySelector('.time').innerText =timeRemaining;
         } else {
             clearInterval(timer);
-            showMessage('Time is up! You lost. Try again!')
+            document.getElementById('gameMessage').textContent = 'Time is up! You lost. Try again!';
+            document.getElementById('gameMessage').style.display = 'block';
         }
     }, 1000);
 }; 
@@ -188,10 +182,7 @@ document.getElementById('restartButton').addEventListener('click', () => {
     secondCard = null;
     document.querySelector('.time').innerText = timeRemaining;
 
-    const currentMessage = document.querySelector('.game-message');
-    if (currentMessage) {
-        currentMessage.remove();
-    };
+    document.getElementById('gameMessage').style.display = 'none';
     
     const matchedCardsList = document.querySelectorAll('.card.matched');
     matchedCardsList.forEach(card => {
