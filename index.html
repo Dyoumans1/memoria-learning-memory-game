@@ -1,60 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script defer src="./app.js"></script>
     <title>Memoria</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <img id="logo-image" src="assets/Golden logo.png" alt="A golden brain with a puzzle piece-shaped chunk fallen out beside it.">
-        <span>Memoria</span>
+      <img
+        id="logo-image"
+        src="assets/Golden logo.png"
+        alt="A golden brain with a puzzle piece-shaped chunk fallen out beside it."
+      />
+      <span>Memoria</span>
     </header>
     <div class="container">
-        <div class="instructions">
-            <h2>How To Play</h2>
-            <ul>
-                <li>This is a basic matching game to help learn Japanese Characters</li>
-                <li>Click 'Start to Begin the Game</li>
-                <li>Match Hiragana and their Romanji counter part</li>
-                <li>Example: あ matches with 'a'</li>
-                <li>You have 90 seconds to find 8 pairs</li>
-                <li>The board is randomly generated between all 46 Characters</li>
-                <li>Keep playing until you learn them all</li>
-                <li>Have fun!</li>
-            </ul>
-        </div>
-    <main>
-        <h1>Hiragana and Romanji メモリ<p>Time: <span class="time"></span></p></h1>
-        <div id="gameMessage" style="display: none;"></div>
+      <div class="instructions">
+        <h2>How To Play</h2>
+        <ul>
+          <li>
+            This is a basic matching game to help learn Japanese Characters
+          </li>
+          <li>Click 'Start to Begin the Game</li>
+          <li>Match Hiragana and their romaji counter part</li>
+          <li>Example: あ matches with 'a'</li>
+          <li>You have 90 seconds to find 8 pairs</li>
+          <li>The board is randomly generated between all 46 Characters</li>
+          <li>Keep playing until you learn them all</li>
+          <li>Have fun!</li>
+        </ul>
+      </div>
+      <main>
+        <h1>
+          Hiragana and romaji メモリ
+          <p>Time: <span class="time"></span></p>
+        </h1>
+        <div id="gameMessage" style="display: none"></div>
         <div class="grid-container">
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-            <div class="card" data-value=""></div>
-        </div>   
-    </main>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+          <div class="card" data-value=""></div>
+        </div>
+      </main>
     </div>
     <footer>
-        <div id="buttons">
-            <button id="startButton">Start</button>
-            <button id="restartButton">Restart</button>
-        </div>
+      <div id="buttons">
+        <button id="startButton">Start</button>
+        <button id="restartButton">Restart</button>
+      </div>
     </footer>
-    
-</body>
+  </body>
 </html>
